@@ -1,0 +1,13 @@
+font.family: serif
+font.serif: Times
+text.usetex: True
+figure.autolayout: False
+axes.spines.left:   True  # display axis spines
+axes.spines.bottom: True
+axes.spines.top:    False
+axes.spines.right:  False
+xtick.direction: in
+ytick.direction: in
+figure.frameon: False
+text.latex.preamble: \usepackage{newtxmath}
+axes.prop_cycle: cycler('color', ['d62728', '9467bd', 'f1c40f', '1c2833', '17becf', '01825d', 'e377c2', '7f7f7f', 'bcbd22'])
