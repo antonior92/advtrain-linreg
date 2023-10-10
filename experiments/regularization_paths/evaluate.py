@@ -3,13 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.ticker as plticker
-from scipy import linalg
-from sklearn.linear_model import lasso_path, enet_path
+from sklearn.linear_model import lasso_path
 from sklearn import datasets
 from sklearn import linear_model
 import tqdm
 import os
-from training import adversarial_training
+from experiments.training import adversarial_training
 
 
 ######  JUST FOR GETTING THE RIGHT STYLE ##########

@@ -1,10 +1,11 @@
 import numpy as np
-from datasets import get_dataset, DSETS
+from experiments.datasets import get_dataset, DSETS
 from sklearn.linear_model import ElasticNetCV
 import tqdm
-from utils import get_dataframe_fields, get_evaluation_dataframe
+from experiments.utils import get_dataframe_fields, get_evaluation_dataframe
 import pandas as pd
-from training import MinimumNorm, AdversarialTraining, sqrt_lasso
+from experiments.training import MinimumNorm, sqrt_lasso
+from advtrain import AdversarialTraining
 
 
 def estimate_adv_radius(X, _y, seed=1, n_samples=10):

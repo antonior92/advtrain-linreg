@@ -1,8 +1,8 @@
 mkdir plots
 
 # Add parent directory to path
-export PYTHONPATH="$PYTHONPATH:../.."
-export PATH="$PATH:../.." # Add parent directory to path
+export PYTHONPATH="$PYTHONPATH:.."
+export PATH="$PATH:.." # Add parent directory to path
 
 #  ----  Evaluate and plot---- #
 python plot_thresholds.py --save plots

@@ -3,7 +3,7 @@ import numpy as np
 import tqdm
 import cvxpy as cp
 import matplotlib.pyplot as plt
-from adversarial_attack import compute_q
+from advtrain import compute_q
 import matplotlib as mpl
 from scipy.linalg import svd
 

@@ -1,8 +1,8 @@
 import numpy as np
-from datasets import get_dataset, DSETS
-from training import MinimumNorm
+from experiments.datasets import get_dataset, DSETS
+from experiments.training import MinimumNorm
 from tqdm import tqdm
-from utils import get_dataframe_fields, get_evaluation_dataframe
+from experiments.utils import get_dataframe_fields, get_evaluation_dataframe
 import pandas as pd
 
 if __name__ == "__main__":

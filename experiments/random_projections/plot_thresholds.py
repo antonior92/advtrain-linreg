@@ -1,7 +1,7 @@
 #%% imports
 import numpy as np
 import tqdm
-from adversarial_attack import compute_q
+from advtrain import compute_q
 import cvxpy as cp
 import matplotlib.pyplot as plt
 from scipy.linalg import svd

@@ -1,13 +1,5 @@
 import numpy as np
 
-def compute_q(p):
-    if p != np.Inf and p > 1:
-        q = p / (p - 1)
-    elif p == 1:
-        q = np.Inf
-    else:
-        q = 1
-    return q
 
 def compute_adv_attack(error, jac, ord=2.0):
     """Compute one step of the adversarial attack with unitary p-norm.

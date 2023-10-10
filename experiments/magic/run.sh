@@ -2,8 +2,8 @@ mkdir results
 mkdir plots
 
 # Add parent directory to path
-export PYTHONPATH="$PYTHONPATH:../.."
-export PATH="$PATH:../.." # Add parent directory to path
+export PYTHONPATH="$PYTHONPATH:.."
+export PATH="$PATH:.." # Add parent directory to path
 
 
 #  ----  Evaluate ---- #
