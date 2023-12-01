@@ -17,7 +17,9 @@ Other info:
 [video](https://recorder-v3.slideslive.com/?share=86229&s=006e4a99-1e12-463e-b7f1-6767feb64b7e) - 
 [poster](https://antonior92.github.io/pdfs/posters/2023-Neurips.pdf) - 
 [slides](https://antonior92.github.io/pdfs/slides/2023-NeurIPS.pdf) -
-[NeurIPS poster page](https://nips.cc/virtual/2023/poster/72028)
+[NeurIPS poster page](https://nips.cc/virtual/2023/poster/72028) -
+[summary tweet](https://twitter.com/ahortaribeiro/status/1732429927784292772)
+
 
 ## Description
 
@@ -30,7 +32,6 @@ The paper analyse the properties of this problem and this repository contain cod
 in the paper.
 
 
-
 ## Colab
 
 We provide google colab to reproduce the main experiments in the paper:
@@ -41,9 +42,14 @@ We provide google colab to reproduce the main experiments in the paper:
 | Fig 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
 
 
+## Requirements
+
+We use `cvxpy` to solve adversarial training optimization problem. We also use standard scientific python packages
+`numpy`, `scipy`, `scikit-learn`, `pandas`, `seaborn` and `matplotlib`. See `requirements.txt`.
+
 ## Generating all figures
 
-You can use **run.py** to generate all figures in the paper
+You can use **run.sh** to generate all figures in the paper.
 ```sh
 # Description: Script to run all experiments in the paper
 
@@ -57,24 +63,25 @@ tar -xvf BASIC_GWAS.tar.gz
 
 ###  regularization paths ###
 # ---- Plot Fig. 1, 3 and S1, S2, S3 ---- #
-( cd experiments/regularization_paths && sh run.sh )
+( cd regularization_paths && sh run.sh )
 
 ### varying regularization strength  ###
 # ---- Plot Fig. 4 and S7, S8, S9 ---- #
-( cd experiments/varying_regularization && sh run.sh )
+( cd varying_regularization && sh run.sh )
 
 ### Random projections ###
 # ---- Plot Fig. S.10---- #
-( cd experiments/random_projections && sh run.sh )
+( cd random_projections && sh run.sh )
 
 ### MAGIC ###
 # ---- Plot Fig. 6 ---- #
-( cd experiments/magic && sh run.sh )
+( cd magic && sh run.sh )
 
 ### Comparing methods (magic) ###
 # ---- Plot Fig. S.11---- #
-( cd experiments/comparing_methods && sh run.sh )
+( cd comparing_methods && sh run.sh )
 ```
+
 
 ## Implementing adversarial training
 
@@ -120,3 +127,16 @@ class AdversarialTraining:
             v = np.zeros(self.param.shape)
         return v
 ```
+
+
+## Folder structure
+
+The folders `comparing_methods`, `magic`, `minnorm`, `varying_regularization`, `magic` and `comparing_methods`
+each contain the script for a different experiment.
+
+- `minnorm/`: Evaluate minimum norm interpolator 
+  - `run.sh`: Plot Fig. 2 and S4, S5, S6
+  - `evaluate.py`: Perform experiments. Save it in `results/` as csv file.
+  - `plot.py`: Generate figures. Read csv file with results, plot and save in `plots/`.
+  - `results/`: Contain results of experiments
+  - `plots/`: Contain pdf plots.
