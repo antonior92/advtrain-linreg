@@ -1,5 +1,5 @@
 import pandas as pd
-from experiments.utils import get_quantiles_df, plot_errorbar
+from utils import get_quantiles_df, plot_errorbar
 import matplotlib.pyplot as plt
 import os
 import matplotlib as mpl

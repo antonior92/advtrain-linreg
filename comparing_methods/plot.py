@@ -1,7 +1,7 @@
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-from experiments.datasets import get_dataset
+from datasets import get_dataset
 
 
 if __name__ == '__main__':

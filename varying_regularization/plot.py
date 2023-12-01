@@ -5,7 +5,7 @@ import matplotlib.ticker as plticker
 from os import listdir
 from os.path import isfile, join
 
-from experiments.utils import get_quantiles
+from utils import get_quantiles
 
 if __name__ == '__main__':
     import argparse

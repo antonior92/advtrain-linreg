@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import itertools
-from experiments.training import minl1norm_solution
+from training import minl1norm_solution
 import scipy.linalg as linalg
 
 ls = ['-', ':', '--', '-.']

@@ -7,7 +7,7 @@ import sklearn.model_selection
 import numpy as np
 import numpy.random as rnd
 import tqdm
-from experiments.training import adversarial_training, lasso_cvx, ridge
+from training import adversarial_training, lasso_cvx, ridge
 
 from sklearn.linear_model import ElasticNetCV
 

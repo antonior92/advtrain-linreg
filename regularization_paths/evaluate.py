@@ -8,7 +8,7 @@ from sklearn import datasets
 from sklearn import linear_model
 import tqdm
 import os
-from experiments.training import adversarial_training
+from training import adversarial_training
 
 
 ######  JUST FOR GETTING THE RIGHT STYLE ##########

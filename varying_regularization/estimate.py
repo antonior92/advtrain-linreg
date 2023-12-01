@@ -1,11 +1,11 @@
 import numpy as np
 import tqdm
-from experiments.training import Ridge
+from training import Ridge
 from advtrain import AdversarialTraining
-from experiments.datasets import get_dataset, DSETS
+from datasets import get_dataset, DSETS
 from sklearn.linear_model import lasso_path
-from experiments.training import get_max_alpha
-from experiments.utils import get_evaluation_dataframe
+from training import get_max_alpha
+from utils import get_evaluation_dataframe
 
 if __name__ == '__main__':
     import argparse

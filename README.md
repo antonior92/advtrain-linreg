@@ -12,9 +12,7 @@ Antônio H Ribeiro, Dave Zachariah, Francis Bach, Thomas B. Sch\"on
 NeurIPS 2023 (spotlight)
 ```
 
-Paper:
-- [arXiv:2310.10807](https://arxiv.org/abs/2310.10807)
-- 
+Paper: [arXiv:2310.10807](https://arxiv.org/abs/2310.10807)
 
 Other info:
 [open review](https://openreview.net/forum?id=K8gLHZIgVW) - 
@@ -34,7 +32,92 @@ The paper analyse the properties of this problem and this repository contain cod
 in the paper.
 
 
-## Folder content
-- The file `advtrain.py` to a solution of adverasarial training problem using CvxPy (and is used by the other scripts).
-- The scripts`fig1and3_regularization_path.py`: generate Figures 1 and 3 from the paper.
-- The folder `other_experiments` contain scripts for generating the figures in the papers appendix.
+
+## Colab
+
+We provide google colab to reproduce the main experiments in the paper:
+
+| Fig 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig1.ipynb) |
+| ----- | ---- |
+| Fig 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
+
+
+## Generating all figures
+
+You can use **run.py** to generate all figures in the paper
+```sh
+# Description: Script to run all experiments in the paper
+
+### Download data ###
+wget http://mtweb.cs.ucl.ac.uk/mus/www/MAGICdiverse/MAGIC_diverse_FILES/BASIC_GWAS.tar.gz
+tar -xvf BASIC_GWAS.tar.gz
+
+### Evaluate minimum norm interpolator ###
+# ---- Plot Fig. 2 and S4, S5, S6 ---- #
+( cd minnorm && sh run.sh )
+
+###  regularization paths ###
+# ---- Plot Fig. 1, 3 and S1, S2, S3 ---- #
+( cd experiments/regularization_paths && sh run.sh )
+
+### varying regularization strength  ###
+# ---- Plot Fig. 4 and S7, S8, S9 ---- #
+( cd experiments/varying_regularization && sh run.sh )
+
+### Random projections ###
+# ---- Plot Fig. S.10---- #
+( cd experiments/random_projections && sh run.sh )
+
+### MAGIC ###
+# ---- Plot Fig. 6 ---- #
+( cd experiments/magic && sh run.sh )
+
+### Comparing methods (magic) ###
+# ---- Plot Fig. S.11---- #
+( cd experiments/comparing_methods && sh run.sh )
+```
+
+## Implementing adversarial training
+
+
+The script **advtrain.py** implement adversarial training using python. It uses the reformulation provided in Proposition 1 in the paper. 
+```python
+import cvxpy as cp
+import numpy as np
+
+
+def compute_q(p):
+    if p != np.Inf and p > 1:
+        q = p / (p - 1)
+    elif p == 1:
+        q = np.Inf
+    else:
+        q = 1
+    return q
+
+
+class AdversarialTraining:
+    def __init__(self, X, y, p):
+        m, n = X.shape
+        q = compute_q(p)
+        # Formulate problem
+        param = cp.Variable(n)
+        param_norm = cp.pnorm(param, p=q)
+        adv_radius = cp.Parameter(name='adv_radius', nonneg=True)
+        abs_error = cp.abs(X @ param - y)
+        adv_loss = 1 / m * cp.sum((abs_error + adv_radius * param_norm) ** 2)
+        prob = cp.Problem(cp.Minimize(adv_loss))
+        self.prob = prob
+        self.adv_radius = adv_radius
+        self.param = param
+        self.warm_start = False
+
+    def __call__(self, adv_radius, **kwargs):
+        try:
+            self.adv_radius.value = adv_radius
+            self.prob.solve(warm_start=self.warm_start, **kwargs)
+            v = self.param.value
+        except:
+            v = np.zeros(self.param.shape)
+        return v
+```

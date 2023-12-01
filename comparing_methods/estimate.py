@@ -1,10 +1,10 @@
 import numpy as np
-from experiments.datasets import get_dataset, DSETS
+from datasets import get_dataset, DSETS
 from sklearn.linear_model import ElasticNetCV
 import tqdm
-from experiments.utils import get_dataframe_fields, get_evaluation_dataframe
+from utils import get_dataframe_fields, get_evaluation_dataframe
 import pandas as pd
-from experiments.training import MinimumNorm, sqrt_lasso
+from training import MinimumNorm, sqrt_lasso
 from advtrain import AdversarialTraining
 
 
