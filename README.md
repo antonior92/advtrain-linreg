@@ -14,13 +14,14 @@ NeurIPS 2023 (spotlight)
 
 Paper:
 - [arXiv:2310.10807](https://arxiv.org/abs/2310.10807)
-- [NeurIPS poster](https://nips.cc/virtual/2023/poster/72028)
+- 
 
 Other info:
 [open review](https://openreview.net/forum?id=K8gLHZIgVW) - 
 [video](https://recorder-v3.slideslive.com/?share=86229&s=006e4a99-1e12-463e-b7f1-6767feb64b7e) - 
 [poster](pdfs/posters/2023-Neurips.pdf) - 
-[slides](pdfs/slides/2023-slides.pdf)
+[slides](pdfs/slides/2023-slides.pdf) -
+[NeurIPS poster page](https://nips.cc/virtual/2023/poster/72028)
 
 ## Description
 
