@@ -35,7 +35,8 @@ in the paper.
 ## Jupyter notebooks
 We provide jupiter notebooks with minimal examples that can be used to quickly reproduce some of the paper main results:
 
-*We try to keep these notebooks as simple as possible, removing some of the plot configurations.*
+*We try to keep these notebooks as simple as possible, removing some of the plot configurations or
+running the experiment only once instead of multiple times.*
 
 
 | Fig   | Colab | 
@@ -43,6 +44,7 @@ We provide jupiter notebooks with minimal examples that can be used to quickly r
 | Fig 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig1.ipynb) |
 | Fig 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig2.ipynb) |
 | Fig 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
+| Fig 4 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig4.ipynb) |
 
 
 ## Requirements
@@ -79,6 +81,10 @@ tar -xvf BASIC_GWAS.tar.gz
 ### Random projections ###
 # ---- Plot Fig. S.10---- #
 ( cd random_projections && sh run.sh )
+
+### Other ###
+# ---- Plot Fig. 5 ---- #
+( cd misc && sh run.sh )
 
 ### MAGIC ###
 # ---- Plot Fig. 6 ---- #
@@ -138,12 +144,20 @@ class AdversarialTraining:
 
 ## Folder structure
 
-The folders `comparing_methods`, `magic`, `minnorm`, `varying_regularization`, `magic` and `comparing_methods`
-each contain the script for a different experiment.
+The folders  `minnorm`, `varying_regularization`, `random_projections`, `varying_regularization`, `comparing_methods`, `magic`, `misc`
+contain the scripts for different experiment and for generating the figures in the paper
 
 - `minnorm/`: Evaluate minimum norm interpolator 
-  - `run.sh`: Plot Fig. 2 and S4, S5, S6
+  - `run.sh`: Plot Fig. 2 and S4, S5, S6.
   - `evaluate.py`: Perform experiments. Save it in `results/` as csv file.
   - `plot.py`: Generate figures. Read csv file with results, plot and save in `plots/`.
-  - `results/`: Contain results of experiments
-  - `plots/`: Contain pdf plots.
+  - `results/`: Folder containing results of experiments in csv format.
+  - `plots/`: Folder containing plots in pdf format.
+- `regulariazation_paths/`: Regularization paths
+  - `run.sh`:  Plot Fig. 1, 3 and S1, S2, S3
+  - `evaluate.py`: Perform experiments. Save it in `results/` as csv file.
+  - `plots/`: Folder containing plots in pdf format.
+- `misc/`: other scripts
+  - `run.sh` generate Fig. 5
+  - `plot_fi.py`
+  
