@@ -34,11 +34,13 @@ in the paper.
 
 ## Colab
 
-We provide google colab to reproduce the main experiments in the paper:
+We provide google colab to reproduce the main experiments in the paper: 
+
 
 | Fig   | Colab | 
 | ----- | ---- |
 | Fig 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig1.ipynb) |
+| Fig 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig2.ipynb) |
 | Fig 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
 
 
