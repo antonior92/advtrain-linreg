@@ -32,9 +32,10 @@ The paper analyse the properties of this problem and this repository contain cod
 in the paper.
 
 
-## Colab
+## Jupyter notebooks
+We provide jupiter notebooks with minimal examples that can be used to quickly reproduce some of the paper main results:
 
-We provide google colab to reproduce the main experiments in the paper: 
+*We try to keep these notebooks as simple as possible, removing some of the plot configurations.*
 
 
 | Fig   | Colab | 
@@ -51,7 +52,11 @@ We use `cvxpy` to solve adversarial training optimization problem. We also use s
 
 ## Generating all figures
 
+
 You can use **run.sh** to generate all figures in the paper.
+
+*These allow to reproduce the figures in the paper exactly.
+The jupyter notebooks above might be easier to understand, since they contain simplified code.*
 ```sh
 # Description: Script to run all experiments in the paper
 
