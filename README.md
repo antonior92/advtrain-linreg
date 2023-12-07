@@ -52,49 +52,6 @@ running the experiment only once instead of multiple times.*
 We use `cvxpy` to solve adversarial training optimization problem. We also use standard scientific python packages
 `numpy`, `scipy`, `scikit-learn`, `pandas`, `seaborn` and `matplotlib`. See `requirements.txt`.
 
-## Generating all figures
-
-
-You can use **run.sh** to generate all figures in the paper.
-
-*These allow to reproduce the figures in the paper exactly.
-The jupyter notebooks above might be easier to understand, since they contain simplified code.*
-```sh
-# Description: Script to run all experiments in the paper
-
-### Download data ###
-wget http://mtweb.cs.ucl.ac.uk/mus/www/MAGICdiverse/MAGIC_diverse_FILES/BASIC_GWAS.tar.gz
-tar -xvf BASIC_GWAS.tar.gz
-
-### Evaluate minimum norm interpolator ###
-# ---- Plot Fig. 2 and S4, S5, S6 ---- #
-( cd minnorm && sh run.sh )
-
-###  regularization paths ###
-# ---- Plot Fig. 1, 3 and S1, S2, S3 ---- #
-( cd regularization_paths && sh run.sh )
-
-### varying regularization strength  ###
-# ---- Plot Fig. 4 and S7, S8, S9 ---- #
-( cd varying_regularization && sh run.sh )
-
-### Random projections ###
-# ---- Plot Fig. S.10---- #
-( cd random_projections && sh run.sh )
-
-### Other ###
-# ---- Plot Fig. 5 ---- #
-( cd misc && sh run.sh )
-
-### MAGIC ###
-# ---- Plot Fig. 6 ---- #
-( cd magic && sh run.sh )
-
-### Comparing methods (magic) ###
-# ---- Plot Fig. S.11---- #
-( cd comparing_methods && sh run.sh )
-```
-
 
 ## Implementing adversarial training
 
@@ -142,22 +99,63 @@ class AdversarialTraining:
 ```
 
 
-## Folder structure
+## Experiments
 
 The folders  `minnorm`, `varying_regularization`, `random_projections`, `varying_regularization`, `comparing_methods`, `magic`, `misc`
 contain the scripts for different experiment and for generating the figures in the paper
 
-- `minnorm/`: Evaluate minimum norm interpolator 
-  - `run.sh`: Plot Fig. 2 and S4, S5, S6.
-  - `evaluate.py`: Perform experiments. Save it in `results/` as csv file.
-  - `plot.py`: Generate figures. Read csv file with results, plot and save in `plots/`.
-  - `results/`: Folder containing results of experiments in csv format.
-  - `plots/`: Folder containing plots in pdf format.
-- `regulariazation_paths/`: Regularization paths
-  - `run.sh`:  Plot Fig. 1, 3 and S1, S2, S3
-  - `evaluate.py`: Perform experiments. Save it in `results/` as csv file.
-  - `plots/`: Folder containing plots in pdf format.
-- `misc/`: other scripts
-  - `run.sh` generate Fig. 5
-  - `plot_fi.py`
+
+*These allow to reproduce the figures in the paper exactly.
+The jupyter notebooks above might be easier to understand, since they contain simplified code.*
+
+- `minnorm/`: Evaluate minimum norm interpolator. Plot Fig. 2 and S4, S5, S6.
+- `regulariazation_paths/`: Regularization paths. Plot Fig. 1, 3 and S1, S2, S3.
+- `varying_regularization/`: Varying regularization strength. Plot Fig. 4 and S7, S8, S9.
+- `misc/`: other scripts. Plot Fig. 5.
+- `random_projections/`: Random projections. Plot Fig. S.10.
+- `magic/`: Experiment with Magic dataset.  Plot Fig. 6.
+- `Comparing methods (magic)`:  Compare methods with and without cross-validation. Plot Fig. S.11
   
+Inside some of this folder, we include:
+- `plots/`: containing the pdf plots generated from the experiment.
+- `results/`: containing results in csv format.
+
+
+### Running all experiments
+You can use **run.sh** to generate all figures in the paper.
+
+```sh
+# Description: Script to run all experiments in the paper
+
+### Download data ###
+wget http://mtweb.cs.ucl.ac.uk/mus/www/MAGICdiverse/MAGIC_diverse_FILES/BASIC_GWAS.tar.gz
+tar -xvf BASIC_GWAS.tar.gz
+
+### Evaluate minimum norm interpolator ###
+# ---- Plot Fig. 2 and S4, S5, S6 ---- #
+( cd minnorm && sh run.sh )
+
+###  regularization paths ###
+# ---- Plot Fig. 1, 3 and S1, S2, S3 ---- #
+( cd regularization_paths && sh run.sh )
+
+### varying regularization strength  ###
+# ---- Plot Fig. 4 and S7, S8, S9 ---- #
+( cd varying_regularization && sh run.sh )
+
+### Random projections ###
+# ---- Plot Fig. S.10---- #
+( cd random_projections && sh run.sh )
+
+### Other ###
+# ---- Plot Fig. 5 ---- #
+( cd misc && sh run.sh )
+
+### MAGIC ###
+# ---- Plot Fig. 6 ---- #
+( cd magic && sh run.sh )
+
+### Comparing methods (magic) ###
+# ---- Plot Fig. S.11---- #
+( cd comparing_methods && sh run.sh )
+```

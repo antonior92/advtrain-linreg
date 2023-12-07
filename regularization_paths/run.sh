@@ -5,6 +5,6 @@ export PYTHONPATH="$PYTHONPATH:.."
 export PATH="$PATH:.." # Add parent directory to path
 
 # ---- Diabetes example ---- #
-python evaluate.py --save plots
+python evaluate.py --save plots --area
 # ---- Gaussian ---- #
 python evaluate.py --save plots --dset gaussian

@@ -99,6 +99,8 @@ if __name__ == '__main__':
     parser.add_argument('--dset', choices=['diabetes', 'gaussian'], default='diabetes')
     parser.add_argument('--l1_xaxis', action='store_true',
                         help='If true also plot x axis.')
+    parser.add_argument('--area', action='store_true',
+                        help='Plot area')
     args, unk = parser.parse_known_args()
 
     if args.save:
@@ -174,5 +176,6 @@ if __name__ == '__main__':
     plot_coefs_l1(coefs_advtrain_linf, 'advtrain_linf', ylabel=False)
 
     # Plot results with area
-    plot_coefs_l1(coefs_lasso, 'lasso_area', add_area=True)
-    plot_coefs_l1(coefs_advtrain_linf, 'advtrain_linf_area', ylabel=False, add_area=True)
+    if args.area:
+        plot_coefs_l1(coefs_lasso, 'lasso_area', add_area=True)
+        plot_coefs_l1(coefs_advtrain_linf, 'advtrain_linf_area', ylabel=False, add_area=True)

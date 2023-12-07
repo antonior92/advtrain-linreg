@@ -10,10 +10,22 @@ ROOTDIR=results
 mkdir $ROOTDIR
 for DSET in latent magic gaussian rff;
   do mkdir $ROOTDIR/$DSET
-  for METHOD in  lasso; # ridge advtrain_l2 advtrain_linf
+  for METHOD in  lasso ridge advtrain_l2 advtrain_linf;
     do mkdir $ROOTDIR/$DSET/$METHOD
       for SEED in 0 1 2 3 4; # 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29;
         do python estimate.py --dset $DSET -o $ROOTDIR/$DSET/$METHOD/results_s"$SEED" -s $SEED -m $METHOD --n_alpha 40 --alpha_range 6
+      done;
+  done;
+done
+
+ROOTDIR=results
+mkdir $ROOTDIR
+for DSET in latent magic gaussian rff;
+  do mkdir $ROOTDIR/$DSET
+  for METHOD in  lasso ridge advtrain_l2 advtrain_linf
+    do mkdir $ROOTDIR/$DSET/$METHOD
+      for SEED in 0 1 2 3 4; # 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29;
+        do mv $ROOTDIR/$DSET/$METHOD/results_s"$SEED" $ROOTDIR/$DSET/$METHOD/results_s"$SEED".csv
       done;
   done;
 done
