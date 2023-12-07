@@ -39,12 +39,12 @@ We provide jupiter notebooks with minimal examples that can be used to quickly r
 running the experiment only once instead of multiple times.*
 
 
-| Fig   | Colab | 
-| ----- | ---- |
-| Fig 1 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig1.ipynb) |
-| Fig 2 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig2.ipynb) |
-| Fig 3 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
-| Fig 4 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig4.ipynb) |
+| Figure   | Jupyter Notebook | Colab | 
+| ----- | ---- | ---- |
+| Fig. 1 | [![Fig1](https://img.shields.io/badge/Fig1-Notebook-f37626?logo=jupyter&style=flat)](notebooks/fig1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig1.ipynb) |
+| Fig. 2 |  [![Fig2](https://img.shields.io/badge/Fig2-Notebook-f37626?logo=jupyter&style=flat)](notebooks/fig2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig2.ipynb) |
+| Fig. 3 |  [![Fig3](https://img.shields.io/badge/Fig3-Notebook-f37626?logo=jupyter&style=flat)](notebooks/fig3.ipynb)  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig3.ipynb) |
+| Fig. 4 |   [![Fig4](https://img.shields.io/badge/Fig4-Notebook-f37626?logo=jupyter&style=flat)](notebooks/fig4.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/antonior92/advtrain-linreg/blob/main/notebooks/fig4.ipynb) |
 
 
 ## Requirements
